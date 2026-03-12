@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — StepChick</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --pink: #D4618C; --dark: #1A1A2E; --darker: #12121F; --text: #F0E6F0; --text-muted: #A89DB0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; background: var(--darker); color: var(--text); min-height: 100vh; }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 720px; margin: 0 auto; padding: 24px 24px 0; }
+        .logo { text-decoration: none; display: inline-block; }
+        .logo img { height: 48px; display: block; }
+        nav a.nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; margin-left: 24px; transition: color 0.2s; }
+        nav a.nav-link:hover { color: var(--text); }
+        .content { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+        h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 8px; }
+        .updated { font-size: 14px; color: var(--text-muted); margin-bottom: 40px; }
+        h2 { font-size: 20px; font-weight: 700; margin: 36px 0 12px; }
+        p, li { font-size: 15px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+        ul { padding-left: 24px; margin-bottom: 12px; }
+        a { color: var(--pink); }
+        footer { border-top: 1px solid rgba(255,255,255,0.06); max-width: 720px; margin: 0 auto; padding: 32px 24px; }
+        footer p { font-size: 13px; color: var(--text-muted); }
+        @media (max-width: 600px) { .content { padding: 40px 20px 60px; } h1 { font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo"><img src="logo1.png" alt="StepChick"></a>
+        <div>
+            <a href="privacy.html" class="nav-link">Privacy</a>
+            <a href="mailto:support@hadalcore.com" class="nav-link">Support</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Terms of Service</h1>
+        <p class="updated">Last updated: March 10, 2025</p>
+
+        <p>Welcome to StepChick. By downloading, installing, or using the app, you agree to these Terms of Service ("Terms"). If you do not agree, do not use the app.</p>
+
+        <h2>1. Use of the App</h2>
+        <p>StepChick is a step tracking and wellness motivation app. You may use it for personal, non-commercial purposes. You agree not to:</p>
+        <ul>
+            <li>Use the app for any unlawful purpose</li>
+            <li>Attempt to reverse-engineer, decompile, or disassemble the app</li>
+            <li>Interfere with or disrupt the app's functionality or servers</li>
+            <li>Create fake accounts, manipulate leaderboards, or abuse the friend/squad features</li>
+        </ul>
+
+        <h2>2. Account</h2>
+        <p>An anonymous account is created automatically when you first use StepChick. You may optionally sign in with Apple for enhanced features. You are responsible for maintaining the security of your device and account. We are not liable for any loss resulting from unauthorized access to your account.</p>
+
+        <h2>3. Subscriptions & Purchases</h2>
+        <p>StepChick offers a premium subscription ("Glow+") through the Apple App Store, which includes a 7-day free trial followed by automatic renewal. By subscribing:</p>
+        <ul>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase</li>
+            <li>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period</li>
+            <li>You can manage or cancel your subscription in your device's Settings > Apple ID > Subscriptions</li>
+            <li>Refunds are handled by Apple according to their refund policies</li>
+        </ul>
+        <p>We reserve the right to change subscription pricing. Any price changes will take effect at the start of the next subscription period following the date of the price change.</p>
+
+        <h2>4. Health Data</h2>
+        <p>StepChick accesses step count data from Apple HealthKit with your explicit permission. This data is used solely to power app features (step tracking, badges, eras, glow points). We do not use HealthKit data for advertising or sell it to third parties. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+
+        <h2>5. Intellectual Property</h2>
+        <p>All content in StepChick — including but not limited to graphics, badges, era designs, text, and branding — is owned by StepChick and protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from any app content without our written permission.</p>
+
+        <h2>6. User Content</h2>
+        <p>You may choose a display name and interact with other users through the Step Squad feature. You agree not to use offensive, misleading, or inappropriate usernames. We reserve the right to remove or modify usernames that violate these Terms.</p>
+
+        <h2>7. Disclaimers</h2>
+        <p>StepChick is provided "as is" without warranties of any kind, express or implied. We do not guarantee that:</p>
+        <ul>
+            <li>The app will be available at all times without interruption</li>
+            <li>Step count data will be perfectly accurate (we rely on Apple HealthKit data)</li>
+            <li>The app will meet all of your expectations or requirements</li>
+        </ul>
+        <p>StepChick is a motivational tool and is not a medical or health device. It should not be used as a substitute for professional health advice.</p>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, StepChick shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the app, including but not limited to loss of data, loss of profits, or personal injury.</p>
+
+        <h2>9. Termination</h2>
+        <p>We reserve the right to suspend or terminate your access to the app at any time, for any reason, including violation of these Terms. Upon termination, your right to use the app ceases immediately.</p>
+
+        <h2>10. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time. Continued use of the app after changes constitutes acceptance of the updated Terms. We will update the "Last updated" date at the top of this page.</p>
+
+        <h2>11. Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of the United States. Any disputes shall be resolved in the courts of competent jurisdiction.</p>
+
+        <h2>12. Contact Us</h2>
+        <p>If you have questions about these Terms, contact us at:<br>
+        <a href="mailto:support@hadalcore.com">YOUR_EMAIL@example.com</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 StepChick. All rights reserved.</p>
+    </footer>
+</body>
+</html>
