@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepChick — Walk Your Way to Your Glow Era</title>
+    <meta name="description" content="StepChick is the step tracking app that turns your daily walks into a glow-up journey. Earn badges, unlock eras, and walk with your squad.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --pink: #D4618C;
+            --pink-light: #F2A3C0;
+            --gold: #F5C563;
+            --dark: #1A1A2E;
+            --darker: #12121F;
+            --text: #F0E6F0;
+            --text-muted: #A89DB0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.25), transparent),
+                radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1.5px 1.5px at 10% 80%, rgba(245,197,99,0.3), transparent),
+                radial-gradient(1px 1px at 70% 90%, rgba(212,97,140,0.3), transparent),
+                radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.15), transparent);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gradient-glow {
+            position: fixed;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,97,140,0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 24px 0;
+        }
+
+        .logo img {
+            height: 56px;
+            display: block;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 24px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--text); }
+
+        .hero {
+            position: relative;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(212,97,140,0.15);
+            border: 1px solid rgba(212,97,140,0.3);
+            color: var(--pink-light);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 64px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        h1 .glow {
+            background: linear-gradient(135deg, var(--pink-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 40px;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .app-store-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .app-store-btn img {
+            height: 54px;
+        }
+
+        .features {
+            position: relative;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.07);
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-muted);
+        }
+
+        footer {
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            margin-left: 20px;
+            transition: color 0.2s;
+        }
+
+        footer .links a:hover { color: var(--text); }
+
+        @media (max-width: 600px) {
+            .hero { padding: 60px 20px 40px; }
+            .features { padding: 20px 20px 60px; }
+            nav { padding: 16px 20px 0; }
+            footer { flex-direction: column; text-align: center; }
+            footer .links a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="gradient-glow"></div>
+
+    <nav>
+        <div class="logo"><img src="logo1.png" alt="StepChick"></div>
+        <div>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:support@hadalcore.com">Support</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">Step Tracking + Glow Up</div>
+        <h1>Walk into your<br><span class="glow">Glow Era</span></h1>
+        <p class="subtitle">Track your steps, earn badges, unlock eras, and glow up with your squad. StepChick makes every walk count.</p>
+        <!-- Replace with your actual App Store link once live -->
+        <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="app-store-btn">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">👟</div>
+            <h3>Step Tracking</h3>
+            <p>Syncs with Apple Health to track your daily steps and glow points automatically.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Earn Badges</h3>
+            <p>Unlock badges for milestones, streaks, and special achievements on your glow journey.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Unlock Eras</h3>
+            <p>Progress through themed eras as you level up — from First Steps to Main Character Energy.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👯‍♀️</div>
+            <h3>Step Squad</h3>
+            <p>Add friends, compare weekly glow points, and walk together on the leaderboard.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📓</div>
+            <h3>Mood Journal</h3>
+            <p>Log how you feel after each walk and track your glow-up journey over time.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔔</div>
+            <h3>Daily Reminders</h3>
+            <p>Get gentle nudges to hit your step goals and keep your streak alive.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 StepChick. All rights reserved.</p>
+        <div class="links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="mailto:support@hadalcore.com">Support</a>
+        </div>
+    </footer>
+</body>
+</html>
