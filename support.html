@@ -3,43 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support - StepChick</title>
+<title>StepChick — Support</title>
+<meta name="description" content="Get help and support for StepChick, the step tracking app that turns your daily walks into a glow-up journey.">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1d1d1f; line-height: 1.6; }
-    .container { max-width: 680px; margin: 0 auto; padding: 60px 24px; }
-    h1 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
-    h2 { font-size: 22px; font-weight: 600; margin-top: 36px; margin-bottom: 12px; }
-    p { font-size: 16px; margin-bottom: 16px; color: #333; }
-    a { color: #E91E8C; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .last-updated { font-size: 14px; color: #888; margin-bottom: 32px; }
+
+    :root {
+        --pink: #D4618C;
+        --pink-light: #F2A3C0;
+        --gold: #F5C563;
+        --dark: #1A1A2E;
+        --darker: #12121F;
+        --text: #F0E6F0;
+        --text-muted: #A89DB0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+        background: var(--darker);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .stars {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background:
+            radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+            radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.2), transparent),
+            radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.25), transparent),
+            radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.15), transparent),
+            radial-gradient(1.5px 1.5px at 10% 80%, rgba(245,197,99,0.3), transparent),
+            radial-gradient(1px 1px at 70% 90%, rgba(212,97,140,0.3), transparent),
+            radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.2), transparent),
+            radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.15), transparent);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .gradient-glow {
+        position: fixed;
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(212,97,140,0.15) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    nav {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 24px 24px 0;
+    }
+
+    .logo img {
+        height: 56px;
+        display: block;
+    }
+
+    nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 24px;
+        transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .support-hero {
+        position: relative;
+        z-index: 10;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 100px 24px 60px;
+        text-align: center;
+    }
+
+    .badge {
+        display: inline-block;
+        background: rgba(212,97,140,0.15);
+        border: 1px solid rgba(212,97,140,0.3);
+        color: var(--pink-light);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    h1 {
+        font-size: clamp(36px, 6vw, 56px);
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -1.5px;
+        margin-bottom: 20px;
+    }
+
+    h1 .glow {
+        background: linear-gradient(135deg, var(--pink-light), var(--gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        max-width: 520px;
+        margin: 0 auto 40px;
+    }
+
+    .support-content {
+        position: relative;
+        z-index: 10;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .support-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px;
+        padding: 32px 28px;
+        transition: background 0.2s;
+    }
+
+    .support-card:hover {
+        background: rgba(255,255,255,0.07);
+    }
+
+    .support-icon {
+        font-size: 28px;
+        margin-bottom: 14px;
+    }
+
+    .support-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .support-card p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-muted);
+    }
+
+    .support-card a {
+        color: var(--pink-light);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s;
+    }
+
+    .support-card a:hover {
+        color: var(--gold);
+    }
+
+    .faq-section {
+        position: relative;
+        z-index: 10;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+    }
+
+    .faq-section h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .faq-item {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+        padding: 22px 24px;
+        margin-bottom: 12px;
+        transition: background 0.2s;
+    }
+
+    .faq-item:hover {
+        background: rgba(255,255,255,0.07);
+    }
+
+    .faq-item h4 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .faq-item p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-muted);
+    }
+
+    footer {
+        position: relative;
+        z-index: 10;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+    }
+
+    footer p {
+        font-size: 13px;
+        color: var(--text-muted);
+    }
+
+    footer .links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 13px;
+        margin-left: 20px;
+        transition: color 0.2s;
+    }
+
+    footer .links a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+        .support-hero { padding: 60px 20px 40px; }
+        .support-content { padding: 0 20px 60px; }
+        .faq-section { padding: 0 20px 60px; }
+        nav { padding: 16px 20px 0; }
+        footer { flex-direction: column; text-align: center; }
+        footer .links a { margin: 0 10px; }
+    }
 </style>
 </head>
 <body>
-<div class="container">
-    <h1>Support</h1>
-    <p class="last-updated">Last updated: March 2025</p>
+<div class="stars"></div>
+<div class="gradient-glow"></div>
 
-    <p>We're here to help! If you have any questions, issues, or feedback about StepChick, please don't hesitate to reach out.</p>
+<nav>
+    <div class="logo"><a href="index.html"><img src="logo1.png" alt="StepChick"></a></div>
+    <div>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+    </div>
+</nav>
 
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@hadalcore.com">info@hadalcore.com</a></p>
-    <p>We aim to respond to all inquiries within 48 hours.</p>
+<section class="support-hero">
+    <div class="badge">We're Here to Help</div>
+    <h1>Get <span class="glow">Support</span></h1>
+    <p class="subtitle">Have a question, found a bug, or need help with your subscription? We've got you covered.</p>
+</section>
 
-    <h2>Common Questions</h2>
+<section class="support-content">
+    <div class="support-card">
+        <div class="support-icon">📧</div>
+        <h3>Email Us</h3>
+        <p>For any questions, issues, or feedback, reach out directly and we'll get back to you within 24–48 hours.</p>
+        <p style="margin-top: 14px;"><a href="mailto:info@hadalcore.com">info@hadalcore.com</a></p>
+    </div>
+    <div class="support-card">
+        <div class="support-icon">💳</div>
+        <h3>Subscription & Billing</h3>
+        <p>StepChick Glow+ subscriptions are managed through your Apple ID. To cancel or modify, go to <strong>Settings → Apple ID → Subscriptions</strong> on your iPhone.</p>
+    </div>
+    <div class="support-card">
+        <div class="support-icon">🔒</div>
+        <h3>Privacy & Data</h3>
+        <p>Your health data stays on your device and is never stored on our servers. Read our full <a href="privacy.html">Privacy Policy</a> for details.</p>
+    </div>
+</section>
 
-    <h2>How do I restore my subscription?</h2>
-    <p>Open the app, go to Settings, and tap "Restore Purchases." Your subscription will be restored automatically if you have an active subscription linked to your Apple ID.</p>
+<section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
 
-    <h2>How does StepChick track my steps?</h2>
-    <p>StepChick reads step data from Apple Health. Make sure you've granted HealthKit permissions in the app. No data ever leaves your device without your consent.</p>
+    <div class="faq-item">
+        <h4>Why aren't my steps showing up?</h4>
+        <p>Make sure you've granted StepChick access to Apple Health. Go to Settings → Privacy & Security → Health → StepChick and enable Steps. It may take a moment for data to sync.</p>
+    </div>
 
-    <h2>How do I cancel my subscription?</h2>
-    <p>Subscriptions are managed through your Apple ID. Go to Settings &gt; Apple ID &gt; Subscriptions on your iPhone to manage or cancel your StepChick subscription.</p>
+    <div class="faq-item">
+        <h4>How do I cancel my subscription?</h4>
+        <p>Open the Settings app on your iPhone, tap your name at the top, then tap Subscriptions. Find StepChick Glow+ and tap Cancel Subscription. You'll keep access until the end of your current billing period.</p>
+    </div>
 
-    <h2>I found a bug</h2>
-    <p>Please email us at <a href="mailto:info@hadalcore.com">info@hadalcore.com</a> with a description of the issue and your device model. Screenshots are always helpful!</p>
-</div>
+    <div class="faq-item">
+        <h4>Can I restore my purchase on a new device?</h4>
+        <p>Yes! Open StepChick on your new device and tap "Restore Purchases" on the subscription screen. Make sure you're signed in with the same Apple ID.</p>
+    </div>
+
+    <div class="faq-item">
+        <h4>How are Glow Points calculated?</h4>
+        <p>Glow Points are earned based on your daily step count synced from Apple Health. The more you walk, the more you glow!</p>
+    </div>
+
+    <div class="faq-item">
+        <h4>Is my health data shared with anyone?</h4>
+        <p>No. StepChick reads step data from Apple Health locally on your device. Your health information is never uploaded to external servers or shared with third parties.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 StepChick. All rights reserved.</p>
+    <div class="links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:info@hadalcore.com">Support</a>
+    </div>
+</footer>
 </body>
 </html>
